@@ -21,7 +21,7 @@
                 Settings
               </h3>
               <p>
-                This tool simulates all possible options during the Amity mini-game, displaying the top results for any given query.
+                This tool examines all possible options during the Amity mini-game, displaying the most optimal selections<sup data-balloon="that's the theory, anyway"><i class="fa fa-fw fa-asterisk"></i></sup> for any conversation.
               </p>
               <p>
                 For more detailed discussion, find us on <a href="https://reddit.com/r/bdotools" target="_blank">reddit</a>.<br>
@@ -106,9 +106,6 @@
               <div v-if="notFound">
                 <h5>Uh oh.</h5>
                 <p>Sorry, we weren't able to find a matching result.</p>
-                <p v-if="target.constellation.name == 'Giant'">
-                  The <b>Giant constellation</b> has 8 slots, and can take an exceptionally long time to solve.
-                </p>
                 <p>
                   We're constantly solving for all combinations - check back later.
                 </p>
@@ -125,18 +122,7 @@
                   This solution is <strong>experimental</strong>.
                 </div>
 
-                <div class="vote u-cf u-full-width" v-if="!result.outdated">
-                  <div class="u-pull-left u-text-center">
-                    <button class="button" v-on:click="upvote" :disabled="result.voted"><i class="fa fa-fw fa-thumbs-o-up"></i> {{ result.upvotes }}</button>
-                  </div>
-                  <div class="u-pull-right u-text-center">
-                    <button class="button" v-on:click="downvote" :disabled="result.voted">
-                      <i class="fa fa-fw fa-thumbs-o-down"></i> {{ result.downvotes }}
-                    </button>
-                  </div>
-                </div>
-
-                <p>
+                <p v-if="result.success_percentage">
                   The following solution has an expected <b>Success Rate</b> of {{ (result.success_percentage * 100).toFixed(2) }}%.
                 </p>
 

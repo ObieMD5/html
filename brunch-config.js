@@ -18,5 +18,10 @@ module.exports = {
 
   plugins: {
     babel: {presets: ['es2015']}
+  },
+
+  server: {
+    hostname: process.env.IP,
+    port: parseInt(process.env.PORT, 10)
   }
 };

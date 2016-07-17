@@ -30,11 +30,11 @@ if ($("#calculator").length) {
 
     computed: {
       validFavor: function() {
-        return this.target.combinations[this.interest].data;
+        return _.range(this.target.favor_min, this.target.favor_max)
       },
 
       validInterests: function() {
-        return _.keys(this.target.combinations);
+        return _.range(this.target.interest_min, this.target.interest_max)
       }
     },
 
